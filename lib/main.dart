@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider_tutorials/provider/auth_provider.dart';
 import 'package:provider_tutorials/provider/count_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_tutorials/provider/example_one_provider.dart';
 import 'package:provider_tutorials/provider/example_two_provider.dart';
 import 'package:provider_tutorials/screens/examples/favourite_example/example_two_screen.dart';
+import 'package:provider_tutorials/screens/examples/value_notifier_listner.dart';
+import 'package:provider_tutorials/screens/login_screen.dart';
 
 
 void main() {
@@ -21,6 +24,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (_) => CountProvider()),
           ChangeNotifierProvider(create: (_) => ExampleOneProvider()),
           ChangeNotifierProvider(create: (_) => ExampleTwoProvider()),
+          ChangeNotifierProvider(create: (_) =>  AuthProvider()),
 
         ],
         child: MaterialApp(
@@ -28,7 +32,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: const ExampleTwoScreen(),
+          home:  ValueNotifierListener(),
         )
     );
   }
